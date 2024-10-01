@@ -1,11 +1,19 @@
-import { deleteCar } from '../api';
+import React, {Dispatch, SetStateAction} from 'react';
+import { deleteCar } from '../api.ts';
+import { Car } from '../App';
 
-const CarList = ({ cars, filter, setCars }) => {
+interface CarListProps {
+  cars: Car[],
+  filter: string,
+  setCars: Dispatch<SetStateAction<Car[]>>;
+}
+
+const CarList: React.FC<CarListProps> = ({ cars, filter, setCars }) => {
   const filteredCars = cars.filter((car) =>
     car.model.toLowerCase().includes(filter.toLowerCase())
   );
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     try {
       await deleteCar(id);
       setCars((prevCars) => prevCars.filter((car) => car.id !== id));
@@ -18,9 +26,9 @@ const CarList = ({ cars, filter, setCars }) => {
     <div>
       <ul>
         {filteredCars.map((car) => (
-          <li key={car.id}>
+          <li key={car.id} className="container">
             {car.model}-{car.manufacturer}-{car.year}-{car.status}
-            <button onClick={() => handleDelete(car.id)}>Delete</button>
+            <button className="Button" onClick={() => handleDelete(car.id)}>Delete</button>
           </li>
         ))}
       </ul>

@@ -1,15 +1,25 @@
-import { useState, useEffect } from "react";
-import FilterPanel from "./components/FilterPanel";
-import CarList from "./components/CarList";
-import Pagination from "./components/Pagination";
-import CarForm from "./components/CarForm";
-import { fetchCars } from "./api";
+import { useState, useEffect, FC } from "react";
+import FilterPanel from "./components/FilterPanel.tsx";
+import CarList from "./components/CarList.tsx";
+import Pagination from "./components/Pagination.tsx";
+import CarForm from "./components/CarForm.tsx";
+import { fetchCars } from "./api.ts";
+import React from "react";
 
-function App() {
-  const [cars, setCars] = useState([]);
-  const [totalPages, setTotalPages] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setFilter] = useState("");
+export interface Car {
+  id: number,
+  model: string,
+  manufacturer: string,
+  year: number,
+  status?: string,
+}
+
+
+const App: FC = () => {
+  const [cars, setCars] = useState<Car[] | []>([]);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [filter, setFilter] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +27,7 @@ function App() {
         const data = await fetchCars(currentPage);
         setCars(data.items);
         setTotalPages(data.totalPages);
-      } catch (error) {
+      } catch(error) {
         console.error(`Error car fetching, ${error}`);
       }
     };
@@ -32,7 +42,7 @@ function App() {
   console.log(cars);
 
   return (
-    <div>
+    <div className="wrapper">
       <header>Car rental</header>
       <FilterPanel setFilter={setFilter} />
       <CarList cars={cars} filter={filter} setCars={setCars} />

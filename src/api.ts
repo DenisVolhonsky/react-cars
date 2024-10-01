@@ -1,8 +1,21 @@
 import axios from "axios";
+import { Car } from "./App";
 
 const API_URL = "http://localhost:5000";
 
-export const fetchCars = async (page) => {
+interface FetchCarsResponse {
+  items: Car[],
+  totalPages: number,
+}
+
+export interface NewCar {
+  model: string;
+  manufacturer: string;
+  year: number;
+  status?: string;
+}
+
+export const fetchCars = async (page): Promise<FetchCarsResponse> => {
   try {
     const response = await axios.get(`${API_URL}/cars`, {
       params: { _page: page, _limit: 10 },
@@ -17,7 +30,7 @@ export const fetchCars = async (page) => {
   }
 };
 
-export const addCar = async (newCar) => {
+export const addCar = async (newCar: NewCar): Promise<Car> => {
   try {
     const response = await axios.post(`${API_URL}/cars`, newCar, {
       headers: { 'Conent-type': 'application/json' },
@@ -29,7 +42,7 @@ export const addCar = async (newCar) => {
   }
 };
 
-export const deleteCar = async (id) => {
+export const deleteCar = async (id: number): Promise<void> => {
   try {
     await axios.delete(`${API_URL}/cars/${id}`);
   } catch (error) {

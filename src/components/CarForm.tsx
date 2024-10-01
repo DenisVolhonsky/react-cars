@@ -1,25 +1,30 @@
-import { useState } from "react";
-import { addCar } from "../api";
+import React, { useState, FC, Dispatch, SetStateAction, ChangeEvent, FormEvent } from "react";
+import { addCar, NewCar } from "../api.ts";
+import { Car } from "../App";
 
-const CarForm = ({ setCars }) => {
+interface CarFormProps {
+  setCars: Dispatch<SetStateAction<Car[]>>;
+}
 
-const initValue = {
+const CarForm: FC<CarFormProps> = ({ setCars }) => {
+  const initValue: NewCar = {
     model: "",
     manufacturer: "",
-    year: "",
-  }
+    year: 0,
+    status: "Available",
+  };
 
-  const [car, setCar] = useState(initValue);
+  const [car, setCar] = useState<NewCar>(initValue);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCar({ ...car, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const addedCar = await addCar(car);
+      const addedCar: Car = await addCar(car);
       setCars((prevCars) => [...prevCars, addedCar]);
       setCar(initValue);
     } catch (error) {
@@ -28,7 +33,7 @@ const initValue = {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="container form" onSubmit={handleSubmit}>
       <div>
         <label>Model:</label>
         <input
@@ -62,7 +67,11 @@ const initValue = {
           required
         />
       </div>
-      <button type="submit">Submit</button>
+      <div>
+        <button className="Button" type="submit">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
