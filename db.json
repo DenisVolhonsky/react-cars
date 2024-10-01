@@ -1,0 +1,144 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "model": "Tesla Model S",
+      "manufacturer": "Tesla",
+      "year": 2022,
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "model": "Audi A4",
+      "manufacturer": "Audi",
+      "year": 2021,
+      "status": "In Use"
+    },
+    {
+      "id": 3,
+      "model": "BMW 3 Series",
+      "manufacturer": "BMW",
+      "year": 2020,
+      "status": "Available"
+    },
+    {
+      "id": 4,
+      "model": "Mercedes-Benz C-Class",
+      "manufacturer": "Mercedes",
+      "year": 2021,
+      "status": "In Maintenance"
+    },
+    {
+      "id": 5,
+      "model": "Volkswagen Passat",
+      "manufacturer": "Volkswagen",
+      "year": 2022,
+      "status": "Available"
+    },
+    {
+      "id": 6,
+      "model": "Ford Mustang",
+      "manufacturer": "Ford",
+      "year": 2022,
+      "status": "In Use"
+    },
+    {
+      "id": 7,
+      "model": "Toyota Camry",
+      "manufacturer": "Toyota",
+      "year": 2021,
+      "status": "Available"
+    },
+    {
+      "id": 8,
+      "model": "Honda Accord",
+      "manufacturer": "Honda",
+      "year": 2020,
+      "status": "Available"
+    },
+    {
+      "id": 9,
+      "model": "Chevrolet Malibu",
+      "manufacturer": "Chevrolet",
+      "year": 2019,
+      "status": "In Use"
+    },
+    {
+      "id": 10,
+      "model": "Nissan Altima",
+      "manufacturer": "Nissan",
+      "year": 2021,
+      "status": "Available"
+    },
+    {
+      "id": 11,
+      "model": "Hyundai Sonata",
+      "manufacturer": "Hyundai",
+      "year": 2022,
+      "status": "In Use"
+    },
+    {
+      "id": 12,
+      "model": "Kia Optima",
+      "manufacturer": "Kia",
+      "year": 2020,
+      "status": "In Maintenance"
+    },
+    {
+      "id": 13,
+      "model": "Lexus ES",
+      "manufacturer": "Lexus",
+      "year": 2021,
+      "status": "Available"
+    },
+    {
+      "id": 14,
+      "model": "Jaguar XF",
+      "manufacturer": "Jaguar",
+      "year": 2019,
+      "status": "In Use"
+    },
+    {
+      "id": 15,
+      "model": "Volvo S60",
+      "manufacturer": "Volvo",
+      "year": 2020,
+      "status": "Available"
+    },
+    {
+      "id": 16,
+      "model": "Subaru Legacy",
+      "manufacturer": "Subaru",
+      "year": 2022,
+      "status": "Available"
+    },
+    {
+      "id": 17,
+      "model": "Mazda 6",
+      "manufacturer": "Mazda",
+      "year": 2021,
+      "status": "In Use"
+    },
+    {
+      "id": 18,
+      "model": "Porsche Panamera",
+      "manufacturer": "Porsche",
+      "year": 2022,
+      "status": "In Maintenance"
+    },
+    {
+      "id": 19,
+      "model": "BMW 5 Series",
+      "manufacturer": "BMW",
+      "year": 2022,
+      "status": "Available"
+    },
+    {
+      "id": 20,
+      "model": "Audi A6",
+      "manufacturer": "Audi",
+      "year": 2021,
+      "status": "In Use"
+    }
+  ]
+}
