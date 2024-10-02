@@ -1,4 +1,30 @@
 {
+  "users": [
+    {
+      "email": "john@example.com",
+      "password": "123456",
+      "name": "John Doe",
+      "id": 1
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$8UFtUhyurULoLL17Q0aOtueFIF8ovs.SbSCNQ4BlIb9GcC3hYZ/iG",
+      "name": "Denis",
+      "id": 2
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$8CLxqsqmaSbGI7WWax5AIedYMcFnpmkA/z8fmvUgQFDXddIIBB0am",
+      "name": "Den",
+      "id": 3
+    },
+    {
+      "email": "test2@test.com",
+      "password": "$2a$10$3Hh575W43sRqaInXpZxFguMegkfGLd3jjnZ1WR.GVqHWG66PLPXEa",
+      "name": "D",
+      "id": 4
+    }
+  ],
   "cars": [
     {
       "id": 1,
@@ -6,13 +32,6 @@
       "manufacturer": "Tesla",
       "year": 2022,
       "status": "Available"
-    },
-    {
-      "id": 2,
-      "model": "Audi A4",
-      "manufacturer": "Audi",
-      "year": 2021,
-      "status": "In Use"
     },
     {
       "id": 3,
@@ -139,6 +158,13 @@
       "manufacturer": "Audi",
       "year": 2021,
       "status": "In Use"
+    },
+    {
+      "model": "lamba",
+      "manufacturer": "italy",
+      "year": "2000",
+      "status": "Available",
+      "id": 21
     }
   ]
 }
