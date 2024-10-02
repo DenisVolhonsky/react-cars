@@ -1,6 +1,6 @@
 import React, { useState, FC, Dispatch, SetStateAction, ChangeEvent, FormEvent } from "react";
 import { addCar, NewCar } from "../api.ts";
-import { Car } from "../App";
+import { Car } from "./Home.tsx";
 
 interface CarFormProps {
   setCars: Dispatch<SetStateAction<Car[]>>;

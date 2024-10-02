@@ -1,59 +1,28 @@
-import { useState, useEffect, FC } from "react";
-import FilterPanel from "./components/FilterPanel.tsx";
-import CarList from "./components/CarList.tsx";
-import Pagination from "./components/Pagination.tsx";
-import CarForm from "./components/CarForm.tsx";
-import { fetchCars } from "./api.ts";
 import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.tsx";
+import About from "./components/About.tsx";
+import Contacts from "./components/Contacts.tsx";
+import Car from "./components/Car.tsx";
 
-export interface Car {
-  id: number,
-  model: string,
-  manufacturer: string,
-  year: number,
-  status?: string,
-}
-
-
-const App: FC = () => {
-  const [cars, setCars] = useState<Car[] | []>([]);
-  const [totalPages, setTotalPages] = useState<number>(1);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [filter, setFilter] = useState<string>("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchCars(currentPage);
-        setCars(data.items);
-        setTotalPages(data.totalPages);
-      } catch(error) {
-        console.error(`Error car fetching, ${error}`);
-      }
-    };
-    fetchData(); // get initial data
-    const interval = setInterval(fetchData, 20000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [currentPage]);
-
-  console.log(cars);
+const App: React.FC = () => {
 
   return (
-    <div className="wrapper">
-      <header>Car rental</header>
-      <FilterPanel setFilter={setFilter} />
-      <CarList cars={cars} filter={filter} setCars={setCars} />
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPages={totalPages}
-      />
-      <CarForm setCars={setCars} />
-    </div>
+    <BrowserRouter>
+      <nav style={{marginBottom: 20}}>
+        <Link className='nav-link' to="/">Home</Link>
+        <Link className='nav-link' to="/about">About</Link>
+        <Link className='nav-link' to="/contacts">Contacts</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/cars/:id" element={<Car />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

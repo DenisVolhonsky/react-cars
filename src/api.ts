@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Car } from "./App";
+import { Car } from "./components/Home";
 
 const API_URL = "http://localhost:5000";
 
